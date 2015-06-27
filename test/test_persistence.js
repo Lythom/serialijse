@@ -10,7 +10,6 @@ Should(true).eql(true);
 
 var serialize = serialijse.serialize;
 var deserialize = serialijse.deserialize;
-var declarePersistable = serialijse.declarePersistable;
 var serializeZ = serialijse.serializeZ;
 var deserializeZ = serialijse.deserializeZ;
 
@@ -31,8 +30,6 @@ var deserializeZ = serialijse.deserializeZ;
         this.color = new Color("blue");
         this.created_on= new Date("04 May 1956 GMT");
     }
-    declarePersistable(Vehicule);
-    declarePersistable(Color);
 
 
     describe("persistence ", function () {
@@ -139,7 +136,6 @@ var deserializeZ = serialijse.deserializeZ;
             Rectangle.prototype.__defineGetter__("perimeter",function(){
                 return (this.width + this.height)*2.0;
             });
-            declarePersistable(Rectangle);
 
 
             var rect1 = new Rectangle();
@@ -252,8 +248,6 @@ var deserializeZ = serialijse.deserializeZ;
                 this.parent = null;
                 this.children = [];
             }
-
-            declarePersistable(Person);
 
             Person.prototype.addChild = function(name) {
                 var child = new Person(name);

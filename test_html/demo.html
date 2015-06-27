@@ -6,7 +6,7 @@
 </head>
 <script src="./mocha.js"></script>
 <script src="./should.js"></script>
-<script src="../dist/serialijse.bundle.js"></script>
+<script src="../dist/serialijse.min.js"></script>
 <script>mocha.setup('bdd')</script>
 <script src="../test/test_persistence.js"></script>
 </html>
@@ -19,7 +19,6 @@
 function Rectangle() {
 
 }
-serialijse.declarePersistable(Rectangle);
 
 
 if (window.mochaPhantomJS) {

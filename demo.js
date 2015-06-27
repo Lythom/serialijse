@@ -64,7 +64,6 @@ function testing_javascript_serialization_instance_of_a_class() {
     console.log("");
 
     // now testing serialization using serialijse  serialize/deserialize
-    s.declarePersistable(Person);
     var str = s.serialize(o);
     var so = s.deserialize(str);
 
