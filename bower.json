@@ -3,7 +3,7 @@
   "main": [
     "dist/serialijse.bundle.min.js"
   ],
-  "version": "0.0.17",
+  "version": "0.0.18",
   "homepage": "https://github.com/Lythom/serialijse",
   "authors": [
     "Etienne Rossignon <etienne.rossignon@gadz.org>"
