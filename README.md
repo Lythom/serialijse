@@ -50,8 +50,6 @@ bower install serialijse
 var serialize = serialijse.serialize;
 var deserialize = serialijse.deserialize;
 var declarePersistable = serialijse.declarePersistable;
-var serializeZ = serialijse.serializeZ;
-var deserializeZ = serialijse.deserializeZ;
 
 var vehicule = new Vehicule();
 ...
@@ -175,4 +173,17 @@ function testing_javascript_serialization_objects_with_cyclic_dependencies() {
 testing_javascript_serialization_objects_with_cyclic_dependencies();
    
    
+```
+
+Build
+=====
+
+```
+npm run bundle
+```
+
+Test
+====
+```
+npm run test
 ```

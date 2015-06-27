@@ -153,25 +153,6 @@ var deserializeZ = serialijse.deserializeZ;
 
         });
 
-        it("testing compression impact ",function(done){
-
-            var vehicules = [new Vehicule(),new Vehicule(),new Vehicule()];
-
-            var uncompressed_serializationString = serialize(vehicules);
-
-            serializeZ(vehicules,function(err,buffer){
-                var serializationString = buffer.toString("base64");
-
-                var compression_ratio = Math.round(100.0- 100.0*(buffer.length/uncompressed_serializationString.length));
-                console.log("           = ", uncompressed_serializationString.length,  "compressed =",buffer.length," ratio ", compression_ratio,"%");
-                deserializeZ(buffer,function(err,reconstructedObject){
-                    done(err);
-                    reconstructedObject.should.eql(vehicules);
-                });
-
-            });
-        });
-
         it("should persist object with boolean", function(done) {
 
             var vehicule = new Vehicule();
