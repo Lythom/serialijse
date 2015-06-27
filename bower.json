@@ -1,19 +1,16 @@
 {
-  "name": "serialijse",
+  "name": "serialijse2",
   "main": [
-    "dist/serialijse.bundle.js",
-    "dist/serialijse.bundle.min.js",
-    "demo.js",
-    "test_html/*"
+    "dist/serialijse.bundle.min.js"
   ],
   "version": "0.0.17",
-  "homepage": "https://github.com/erossignon/serialijse",
+  "homepage": "https://github.com/Lythom/serialijse",
   "authors": [
     "Etienne Rossignon <etienne.rossignon@gadz.org>"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/erossignon/serialijse.git"
+    "url": "https://github.com/Lythom/serialijse.git"
   },
   "moduleType": "global",
   "description": "serialize and deserialize javascript object, preserve your object model",
