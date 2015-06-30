@@ -3,6 +3,7 @@
 var lib = require("./lib/serialijse");
 exports.serialize = lib.serialize;
 exports.deserialize = lib.deserialize;
+exports.declarePersistable = lib.declarePersistable;
 
 },{"./lib/serialijse":2}],2:[function(require,module,exports){
 (function (exports) {
@@ -24,6 +25,13 @@ exports.deserialize = lib.deserialize;
             }
         } else {
             throw new Error("Can't serialize with no constructor.");
+        }
+    }
+
+    function declarePersistable(constructor) {
+        var className = constructor.prototype.constructor.name;
+        if (!g_global.hasOwnProperty(className)) {
+            g_global[className] = constructor;
         }
     }
 
@@ -58,8 +66,6 @@ exports.deserialize = lib.deserialize;
                 serializingObject.o = null;
                 return;
             }
-
-
 
 
             var className = object.constructor.name, s, v, id;
@@ -191,7 +197,6 @@ exports.deserialize = lib.deserialize;
                 return  cache_object;
 
             } else if (node.hasOwnProperty("a")) {
-                // return _deserialize_object(node.o);
                 return node.a.map(deserialize_node_or_value);
             }
             throw new Error("Unsupported deserialize_node" + JSON.stringify(node));
@@ -211,8 +216,8 @@ exports.deserialize = lib.deserialize;
                 if (!constructor) {
                     throw new Error(" Cannot find constructor to deserialize class of type" + className + ".");
                 }
-                if (isFunction(constructor._deserialize)) {
-                    return constructor._deserialize(data);
+                if (isFunction(constructor.prototype._deserialize)) {
+                    return constructor.prototype._deserialize(data);
                 } else {
                     obj = new constructor();
                 }
@@ -241,6 +246,7 @@ exports.deserialize = lib.deserialize;
 
     exports.deserialize = deserialize;
     exports.serialize = serialize;
+    exports.declarePersistable = declarePersistable;
 
 
 })(typeof exports === 'undefined'? this['serialijse']={}: exports);

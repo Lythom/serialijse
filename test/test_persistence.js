@@ -175,15 +175,14 @@ var deserializeZ = serialijse.deserializeZ;
             var vehicule = new Vehicule();
             vehicule.serviceDate = [ null, new Date("2013/01/02")];
 
-            // try to mess with the serialisation algo by adding a fake null property
+            // add null property
             vehicule.toto = null;
             var serializationString = serialize(vehicule);
 
-            // delete it as it should not interfer
-            delete vehicule.toto;
-
             var reconstructedObject = deserialize(serializationString);
             reconstructedObject.should.eql(vehicule);
+            Should(vehicule.toto).eql(null);
+            Should(reconstructedObject.toto).eql(null);
 
             done();
         });
