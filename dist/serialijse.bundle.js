@@ -106,14 +106,12 @@ exports.declarePersistable = lib.declarePersistable;
                 } else {
                     for (v in object) {
                         if (object.hasOwnProperty(v) && v !== '____index') {
-                            if (object[v] !== null) {
-                                s.d[v] = _serialize(object[v]);
-                            }
+                            s.d[v] = _serialize(object[v]);
                         }
                     }
                 }
 
-               
+
             }
             serializingObject.o = id;
             return serializingObject;
@@ -221,19 +219,18 @@ exports.declarePersistable = lib.declarePersistable;
                 } else {
                     obj = new constructor();
                 }
-                
             }
 
             cache[object_id] = obj;
             for (v in data) {
                 if (data.hasOwnProperty(v)) {
                     try {
-                       obj[v] = deserialize_node_or_value(data[v]);
-                    } 
+                        obj[v] = deserialize_node_or_value(data[v]);
+                    }
                     catch(err) {
-                      console.log(" property : ", v);
-                      console.log(err);
-                      throw err;
+                        console.log(" property : ", v);
+                        console.log(err);
+                        throw err;
                     }
                 }
             }
